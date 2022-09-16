@@ -3,13 +3,15 @@ import { Card } from './Card';
 import { AddNewItem } from './AddNewItems';
 import { useAppState } from './state/AppStateContext';
 
+import { addTask } from './state/actions';
+
 type ColumnProps = {
   text: string;
   id: string;
 };
 
 export const Column = ({ text, id }: ColumnProps) => {
-  const { getTasksByListId } = useAppState();
+  const { getTasksByListId, dispatch } = useAppState();
 
   const tasks = getTasksByListId(id);
   return (
@@ -20,7 +22,7 @@ export const Column = ({ text, id }: ColumnProps) => {
       })}
       <AddNewItem
         toggleButtonText="+ 할 일 추가하기"
-        onAdd={() => console.log('added')}
+        onAdd={(text) => dispatch(addTask(text, id))}
         dark
       />
     </ColumnContainer>
