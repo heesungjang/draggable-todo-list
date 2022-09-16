@@ -1,19 +1,5 @@
-import { createContext, FC, useContext } from 'react';
-
-type Task = {
-  id: string;
-  text: string;
-};
-
-type List = {
-  id: string;
-  text: string;
-  tasks: Task[];
-};
-
-export type AppState = {
-  lists: List[];
-};
+import { createContext, useContext } from 'react';
+import { AppState, List, Task } from './appStateReducer';
 
 const appData: AppState = {
   lists: [
