@@ -13,12 +13,24 @@ interface AddTaskAction {
   };
 }
 
-interface SetDragItem {
+interface MoveListAction {
+  type: 'MOVE_LIST';
+  payload: {
+    draggedId: string;
+    hoverId: string;
+  };
+}
+
+interface SetDraggedItem {
   type: 'SET_DRAGGED_ITEM';
   payload: DragItem | null;
 }
 
-export type Action = AddListAction | AddTaskAction | SetDragItem;
+export type Action =
+  | AddListAction
+  | AddTaskAction
+  | SetDraggedItem
+  | MoveListAction;
 
 export const addTask = (text: string, listId: string): Action => ({
   type: 'ADD_TASK',
@@ -31,6 +43,14 @@ export const addTask = (text: string, listId: string): Action => ({
 export const addList = (text: string): Action => ({
   type: 'ADD_LIST',
   payload: text,
+});
+
+export const moveList = (draggedId: string, hoverId: string): Action => ({
+  type: 'MOVE_LIST',
+  payload: {
+    draggedId,
+    hoverId,
+  },
 });
 
 export const setDraggedItem = (draggedItem: DragItem | null): Action => ({
