@@ -1,6 +1,5 @@
-import { toEditorSettings } from 'typescript';
-import { AddNewItem } from './AddNewItems';
-import { Column } from './Column';
+import { AddNewItem } from './components/AddNewItems';
+import { Column } from './components/Column';
 import { AppContainer } from './styles';
 
 import { useAppState } from './state/AppStateContext';

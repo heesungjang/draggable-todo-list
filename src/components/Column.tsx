@@ -1,9 +1,9 @@
-import { CardContainer, ColumnContainer, ColumnTitle } from './styles';
+import { ColumnContainer, ColumnTitle } from '../styles';
 import { Card } from './Card';
-import { AddNewItem } from './AddNewItems';
-import { useAppState } from './state/AppStateContext';
+import { AddNewItem } from '../components/AddNewItems';
+import { useAppState } from '../state/AppStateContext';
 
-import { addTask } from './state/actions';
+import { addTask } from '../state/actions';
 
 type ColumnProps = {
   text: string;
